@@ -42,7 +42,7 @@ class TaskManager {
         tasksHtmlList.push(taskHtml);
         
        let tasksHtml= tasksHtmlList.join(" \\n ")
-       
+       document.getElementById("iyaa").innerHTML = tasksHtml;
     }
     }
     id: 1,
@@ -56,3 +56,6 @@ class TaskManager {
     }
 }
 };
+
+
+
