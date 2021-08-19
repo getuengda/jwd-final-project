@@ -13,12 +13,10 @@ newTaskForm.addEventListener('submit', (event) => {
     const newTaskDueDate = document.querySelector('#newTaskDueDate');
     const errorMessage = document.querySelector('#alertMessage');
     
+    addTask();
+    render();
     
-    /*
-        Validation code here
-    */
-
-    // Get the values of the inputs
+      // Get the values of the inputs
     const name = newTaskNameInput.value;
     const description = newTaskDescription.value;
     const assignedTo = newTaskAssignedTo.value;
