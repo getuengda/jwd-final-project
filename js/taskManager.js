@@ -29,4 +29,30 @@ class TaskManager {
     this.tasks.push(this.currentId, name, description, assignedTo, dueDate, status = 'TODO')  )
     }
 }
+  render() {
+    let tasksHtmlList = [];
+    
+    for(task = 0; task < tasksHtmlList.length; task++){
+      if () {
+        // new Date().toString().options[i].selected 
+      task++;
+        const date = new Date(dueDate);
+        const formattedDate = date;
+        const taskHtml = createTaskHtml(task, formattedDate);
+        tasksHtmlList.push(taskHtml);
+        
+       let tasksHtml= tasksHtmlList.join(" \\n ")
+       
+    }
+    }
+    id: 1,
+    name: 'Take out the trash',
+    description: 'Take out the trash to the front of the house',
+    assignedTo: 'Nick',
+    dueDate: '2020-09-20',
+    status: 'TODO'
+    for (id = 0; id < currentId.length; id++){
+    this.tasks.push(this.currentId, name, description, assignedTo, dueDate, status = 'TODO')  )
+    }
+}
 };
