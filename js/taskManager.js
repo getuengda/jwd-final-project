@@ -1,3 +1,18 @@
+createTaskHtml = (name, description, assignedTo, dueDate, status) => {
+  const html = `
+    <li class="list-group-item">
+        <div class="d-flex w-100 mt-2 justify-content-between align-items-center">
+            <h5>${name}</h5>
+            <span class="badge badge-danger">TODO</span>
+        </div>
+        <div class="d-flex w-100 mb-3 justify-content-between">
+            <small>${AssignedTo}: Nick</small>
+            <small>${DueDate}: 20/09/2020</small>
+        </div>
+        <p>${description}</p>
+    </li>
+`}
+
 class TaskManager {
   constructor(currentId = 0){
     this.tasks = []
