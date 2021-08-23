@@ -1,72 +1,83 @@
-// Select the New Task Form
-const newTaskForm = document.querySelector('#newTaskForm');
+createTaskHtml = (name, description, assignedTo, dueDate, status) => {
+  const html = `
+    <li class="list-group-item">
+        <div class="d-flex w-100 mt-2 justify-content-between align-items-center">
+            <h5>${name}</h5>
+            <span class="badge badge-danger">TODO</span>
+        </div>
+        <div class="d-flex w-100 mb-3 justify-content-between">
+            <small>${AssignedTo}: Nick</small>
+            <small>${DueDate}: 20/09/2020</small>
+        </div>
+        <p>${description}</p>
+    </li>
+    <button type="button" class="btn btn-primary done-button">Mark As Done</button>
+`}
 
-// Add an 'onsubmit' event listener
-newTaskForm.addEventListener('submit', (event) => {
-    // Prevent default action
-    event.preventDefault();
-
-    // Select the inputs
-    const newTaskNameInput = document.querySelector('#newTaskNameInput');
-    const newTaskDescription = document.querySelector('#newTaskDescription');
-    const newTaskAssignedTo = document.querySelector('#newTaskAssignedTo');
-    const newTaskDueDate = document.querySelector('#newTaskDueDate');
-    const errorMessage = document.querySelector('#alertMessage');
-    
-    addTask();
-    render();
-    
-      // Get the values of the inputs
-    const name = newTaskNameInput.value;
-    const description = newTaskDescription.value;
-    const assignedTo = newTaskAssignedTo.value;
-    const dueDate = newTaskDueDate.value;
-    if(!validFormFieldInput(name)){
-        errorMessage.innerHTML = "Invalid name input";
-        errorMessage.style.display = "block"
-    }else{
-        errorMessage.style.display = "none"
+class TaskManager {
+  constructor(currentId = 0){
+    this.tasks = []
+    this.currentId = currentId;
+}
+  addTask () {
+    id: 1,
+    name: 'Take out the trash',
+    description: 'Take out the trash to the front of the house',
+    assignedTo: 'Nick',
+    dueDate: '2020-09-20',
+    status: 'TODO'
+    for (id = 0; id < currentId.length; id++){
+    this.tasks.push(this.currentId, name, description, assignedTo, dueDate, status = 'TODO')  )
     }
-
+}
+  render() {
+    let tasksHtmlList = [];
+    
+    for(task = 0; task < tasksHtmlList.length; task++){
+      if () {
+        // new Date().toString().options[i].selected 
+      task++;
+        const date = new Date(dueDate);
+        const formattedDate = date;
+        const taskHtml = createTaskHtml(task, formattedDate);
+        tasksHtmlList.push(taskHtml);
+        
+       let tasksHtml= tasksHtmlList.join(" \\n ")
+       document.getElementById("iyaa").innerHTML = tasksHtml;
+    }
+    }
+    id: 1,
+    name: 'Take out the trash',
+    description: 'Take out the trash to the front of the house',
+    assignedTo: 'Nick',
+    dueDate: '2020-09-20',
+    status: 'TODO'
+    for (id = 0; id < currentId.length; id++){
+    this.tasks.push(this.currentId, name, description, assignedTo, dueDate, status = 'TODO')  )
+    }
+}
+};
+const list = document.querySelector("#taskList");
+taskList.addEventListener('click', (event) => { // "event" here is the event parameter
+ if (list === "done-button"){
+   
+ }
 });
 
-function validFormFieldInput(data){
-    return data !== null && data !== '';
-}
+tasksList.addEventListener('click', (event) => {
+    // Check if a "Mark As Done" button was clicked
+    if (event.target.classList.contains('done-button')) {
+        // Get the parent Task
+        const parentTask = event.target.parentElement.parentElement;
 
-function validFormFieldInput(data){
-    const newTaskNameInput = document.querySelector('#Task');
-    const taskname = newTaskNameInput.value;
-    console.log("name:  "+ taskname);
-    
-    const newDescriptionInput = document.querySelector('#Description');
-    const description = newDescriptionInput.value;
-    console.log("name:  "+description);
-    
-    const newDueDateInput = document.querySelector('#Due');
-    const duedate = newDueDateInput.value;
-    console.log("name:  "+newDueDateInput);
-    
-    const newAssignementInput = document.querySelector('#Assign');
-    const assignement = newAssignementInput.value;
-    console.log("name:  "+assignement);
-    
-    const newStatusInput = document.querySelector('#Status');
-    const status = newStatusInput.value;
-    console.log("name:  "+status);
+        // Get the taskId of the parent Task.
+        const taskId = Number(parentTask.dataset.taskId);
 
-    if (!data){
-    const validInput = document.querySelector('#alert');
-    const status = validInput.value;
-    console.log("Warning:  "+validInput);
+        // Get the task from the TaskManager using the taskId
+        const task = taskManager.getTaskById(taskId);
 
-    }
-}
-function validFormFieldInput() {
-    var x = document.getElementById("alert");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
+        // Update the task status to 'DONE'
+        task.status = 'DONE';
+
+        // Render the tasks
+        taskManager.render();
