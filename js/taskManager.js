@@ -11,6 +11,7 @@ createTaskHtml = (name, description, assignedTo, dueDate, status) => {
         </div>
         <p>${description}</p>
     </li>
+    <button type="button" class="btn btn-primary done-button">Mark As Done</button>
 `}
 
 class TaskManager {
